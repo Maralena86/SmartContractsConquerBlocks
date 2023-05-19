@@ -10,13 +10,16 @@ pragma solidity ^0.8.14;
 */
 
 contract VendingMachine{
+
     address payable private owner;
+
     struct Snack{
         uint32 id;
         string name;
         uint32 quantity;
         uint8 price;
     }
+
     Snack [] stock;
     uint32 totalSnacks;
 
@@ -41,7 +44,7 @@ contract VendingMachine{
     //Acces to all snacks
     function getAllSnacks () external view returns (Snack [] memory _stock)
     {
-        return _stock;
+        return stock;
     }
 
     function addNewSnack (string memory _name, uint32 _quantity, uint8 _price ) external onlyOwner 
